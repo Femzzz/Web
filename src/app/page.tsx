@@ -1,10 +1,13 @@
+import dynamic from "next/dynamic";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
 import Disciplines from "@/components/Disciplines";
-import Events from "@/components/Events";
-import ExcoSection from "@/components/ExcoSection";
 import Footer from "@/components/Footer";
+
+// Lazy load below-the-fold sections to cut Total Blocking Time (TBT)
+const Events = dynamic(() => import("@/components/Events"));
+const ExcoSection = dynamic(() => import("@/components/ExcoSection"));
 
 export default function Home() {
   return (
